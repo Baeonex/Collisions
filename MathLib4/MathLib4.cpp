@@ -5,7 +5,7 @@
 #include <utility>
 #include <limits.h>
 #include "MathLib4.h"
-#include <math.h>
+#include <cmath>
 
 ///////////
 //Vector2//
@@ -38,11 +38,12 @@ Vector2& Vector2::operator -= (const Vector2& other)
 	return *this;
 }
 
-Vector2& Vector2::operator - (const Vector2& other)
+Vector2& Vector2::operator - (const Vector2 other)
 {
-	x -= other.x;
-	y -= other.y;
-	return *this;
+	Vector2 newVector;
+	newVector.x = x - other.x;
+	newVector.y = y - other.y;
+	return newVector;
 }
 Vector2 Vector2::operator * (float scalar) const
 {
@@ -72,7 +73,7 @@ float Vector2::distance(const Vector2& other) const
 {
 	float diffX = x - other.x;
 	float diffY = y - other.y;
-	return (diffX * diffX + diffY * diffY);
+	return sqrt(diffX * diffX + diffY * diffY);
 }
 
 Vector2 Vector2::normalise(Vector2& v) const

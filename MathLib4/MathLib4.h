@@ -33,7 +33,7 @@ public:
 	//Vector2& operator - (const Vector2& other), subtracts two 2D vectors
 	//input: const Vector2& other, the other 2D vector which is going to be subtracted with this vector
 	//output: the result of the vector subtraction
-	Vector2& operator - (const Vector2& other);
+	Vector2& operator - (const Vector2 other);
 	//friend Vector2 MATHLIBRARY_API operator * (float scalar, Vector2& v), a friend function that is used to pre scale a 2D vector
 	//intput: float scalar, Vector2& v, the scalar and vector that is to be multiplied together
 	//output: result of the multiplication a scaled vector

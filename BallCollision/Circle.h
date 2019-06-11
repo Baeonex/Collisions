@@ -19,11 +19,13 @@ public:
 		return { max(a.x,b.x), max(a.y, b.y) };
 	}
 	Vector2 center;
+	Vector2 velocity;
 	float radius;
 	void fit(const Vector2* points, unsigned int count);
 	void fit(const std::vector<Vector2>& points);
 	bool overlaps(Vector2 p);
 	bool overlaps(Circle& other);
+	void circleMove(Vector2 move, Circle& other);
 	Vector2 closestPoint(Vector2 p) const;
 };
 

@@ -1,6 +1,6 @@
 #include "Circle.h"
 #include <algorithm>
-
+#include <iostream>
 
 Circle::Circle()
 {
@@ -43,14 +43,37 @@ void Circle::fit(const std::vector<Vector2>& points)
 bool Circle::overlaps(Vector2 p) 
 {
 	Vector2 toPoint = p - center;
-	return toPoint.magnitude() <= (radius * radius);
+	return toPoint.magnitude() <= (radius);
 }
 bool Circle::overlaps(Circle& other)
 {
 	Vector2 diff = center - other.center;
-
 	float r = radius + other.radius;
-	return diff.magnitude() <= (r * r);
+	
+	if (diff.magnitude() <= (r))
+	{
+		std::cout << "hit" << std::endl;
+		Vector2 tangentVector;
+		tangentVector.y = -(other.center.x - center.x);
+		tangentVector.x = (other.center.y - center.y);
+		tangentVector.normalise();
+		Vector2 relativeVelocity = Vector2(velocity.x - other.velocity.x, velocity.y - other.velocity.y);
+		float length = relativeVelocity.dot(tangentVector);
+		Vector2 velocityComponent;
+		velocityComponent = tangentVector * length;
+		Vector2 velocityComponentPerpToTangent = relativeVelocity - velocityComponent;
+		circleMove(velocityComponentPerpToTangent, other);
+
+	}
+	
+	return diff.magnitude() <= (r);
+}
+void Circle::circleMove(Vector2 move, Circle& other)
+{
+	velocity.x -= move.x;
+	velocity.y -= move.y;
+	other.velocity.x += move.x;
+	other.velocity.y += move.y;
 }
 Vector2 Circle::closestPoint(Vector2 p) const
 {

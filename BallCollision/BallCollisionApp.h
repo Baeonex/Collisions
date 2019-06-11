@@ -27,6 +27,7 @@ protected:
 	aie::Font*			m_font;
 	Box box;
 	Circle circle;
+	Circle stat;
 	Vector2 point;
 	Vector2 v;
 	Vector2* I;

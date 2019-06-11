@@ -17,21 +17,31 @@ public:
 	virtual void draw();
 	void ballDraw();
 	bool checkFail(bool &notEnd);
-	int CompareLists(LinkedList* list1, LinkedList* list2);
+
 protected:
 	bool notEnd;
+	bool notCorrect;
+	bool start;
+	bool noButtonPress;
+	bool noConinueButtonInput;
+	int correctCounter;
+	bool failInput;
+	char charCorrectCounter[64];
+	char scoreTextDisplay[64];
 	LinkedList* answerList;
 	LinkedList* list;
 	int randomNumber;
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
-	Button* m_startButton;
+	Button* m_continueButton;
 	Button* m_buttonYellow;
 	Button* m_buttonBlue;
 	Button* m_buttonRed;
 	Button* m_buttonGreen;
+	Button* m_startButton;
 	aie::Texture* ball;
 	aie::Texture* yellow;
+	aie::Texture* grey;
 	aie::Texture* blue;
 	aie::Texture* red;
 	aie::Texture* green;

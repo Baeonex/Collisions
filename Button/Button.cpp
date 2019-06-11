@@ -8,6 +8,7 @@ Button::Button(const char* buttonText, float x, float y, float width, float heig
 	strcpy_s(m_buttonText, 64, buttonText);
 	//Load a font to use to display the text.
 	m_font = new aie::Font("./font/consolas.ttf", 24);
+	
 	//Store the button's position, width, and height.
 	m_posX = x;
 	m_posY = y;
@@ -18,7 +19,10 @@ Button::Button(const char* buttonText, float x, float y, float width, float heig
 Button::~Button()
 {
 	delete m_font;
-}bool Button::Update()
+}
+
+
+bool Button::Update()
 {
 	
 	aie::Input* input = aie::Input::getInstance();
@@ -39,9 +43,12 @@ Button::~Button()
 		//Return whether the mouse button is clicked while colliding
 		return input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT);
 	}
-	return false;
+	return false;
 
-}void Button::Draw(aie::Renderer2D* renderer)
+
+}
+
+void Button::Draw(aie::Renderer2D* renderer)
 {
 	renderer->drawSprite(colourImg, m_posX, m_posY, m_width, m_height);
 
@@ -52,5 +59,6 @@ Button::~Button()
 	float centredPosX = m_posX - (textWidth * 0.5f) + 2;
 	float centredPosY = m_posY - (textHeight * 0.5f) + 5;
 	//Draw text on the button.
-	renderer->drawText(m_font, m_buttonText, centredPosX, centredPosY);
-}
+	renderer->drawText(m_font, m_buttonText, centredPosX, centredPosY);
+
+}

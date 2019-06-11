@@ -61,7 +61,7 @@ void LinkedList::clearList()
 	}
 }
 
-bool LinkedList::areIdentical(struct Node *a, struct Node *b)
+bool LinkedList::areIdentical(Node *a, Node *b)
 {
 	while (a != NULL && b != NULL)
 	{

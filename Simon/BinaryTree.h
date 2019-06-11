@@ -16,7 +16,7 @@ public:
 	~BinaryTree();
 
 	void insert(int key);
-	node *search(int key);
+	node* search(int key);
 	void destroy_tree();
 	void inorder_print();
 	void postorder_print();
@@ -29,6 +29,5 @@ private:
 	void inorder_print(node *leaf);
 	void postorder_print(node *leaf);
 	void preorder_print(node *leaf);
-
 	node *root;
 };

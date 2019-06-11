@@ -20,7 +20,7 @@ public:
 
 	LinkedList();
 	~LinkedList();
-	bool areIdentical(struct Node *a, struct Node *b);
+	bool areIdentical(Node *a, Node *b);
 	void add(int data);
 	void print();
 	int search(int nodeNumber);

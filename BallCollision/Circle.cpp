@@ -52,7 +52,7 @@ bool Circle::overlaps(Circle& other)
 	
 	if (diff.magnitude() <= (r))
 	{
-		std::cout << "hit" << std::endl;
+	
 		Vector2 tangentVector;
 		tangentVector.y = -(other.center.x - center.x);
 		tangentVector.x = (other.center.y - center.y);
